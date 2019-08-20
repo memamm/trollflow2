@@ -176,7 +176,7 @@ class FilePublisher(object):
         """Create new instance."""
         self = super().__new__(cls)
         LOG.debug('Starting publisher')
-        self.pub = NoisyPublisher('l2processor')
+        self.pub = NoisyPublisher('l2processor', nameservers=['localhost'])
         self.pub.start()
         return self
 
