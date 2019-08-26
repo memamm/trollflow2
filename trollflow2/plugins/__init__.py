@@ -196,6 +196,10 @@ class FilePublisher(object):
                 file_mda['uri'] = fmat['filename']
             except KeyError:
                 continue
+            try:
+                file_mda['collection_area_id'] = fmat['area']
+            except KeyError:
+                continue
             file_mda['uid'] = os.path.basename(fmat['filename'])
             topic = compose(topic_pattern, fmat)
             msg = Message(topic, 'file', file_mda)
